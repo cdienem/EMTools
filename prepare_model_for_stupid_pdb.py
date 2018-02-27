@@ -12,13 +12,8 @@ import sys
 ifile = []
 
 with open(sys.argv[1], "rb") as infile:
-
 	for line in infile:
-
 		ifile.append(line)
-
-
-
 
 
 ofile = []
@@ -27,12 +22,10 @@ hetatom = []
 
 # Removes TERs
 for card in ifile:
-
 	if card[0:3] != "TER" and card[0:6] != "HETATM":
 		ofile.append(card)
 	
 	if card[0:6] == "HETATM":
-
 		hetatom.append(card)
 
 # recovers the TERs where it is needed
@@ -54,7 +47,5 @@ oo = terfile + hetatom + ["END"]
 #print oo
 
 with open(sys.argv[2],"w+") as outfile:
-
 	for line in oo:		
-
 		outfile.write(str(line))
